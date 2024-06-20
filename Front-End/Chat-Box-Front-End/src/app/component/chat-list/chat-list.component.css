@@ -1,0 +1,27 @@
+.avatar-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .avatar {
+    display: block;
+  }
+  
+  .status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid white; /* Optional: adds a border around the dot */
+  }
+  
+  .online-dot {
+    background-color: #006280;
+  }
+  
+  .offline-dot {
+    background-color: yellow;
+  }
+  

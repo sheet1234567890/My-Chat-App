@@ -1,0 +1,20 @@
+<!-- <div class="d-flex container">
+  <div class="row">
+     <app-chat-list class="col-4 height-100"></app-chat-list>
+    <router-outlet ></router-outlet>
+  </div>
+</div> -->
+<app-navbar></app-navbar>
+
+<div class="bootstrap wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4">
+        <app-chat-list></app-chat-list>
+      </div>
+      <div class="col-8">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

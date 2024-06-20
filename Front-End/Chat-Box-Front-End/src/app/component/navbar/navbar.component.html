@@ -1,0 +1,70 @@
+<nav class="header d-flex align-items-center justify-content-between">
+  <!-- Logo on the left side -->
+  <div class="left-logo d-flex align-items-center">
+    <img src="assets/images/svg-img/logo.svg" height="40" width="40" alt="Logo">
+  </div>
+
+  <div class="right-admin-profile d-flex align-items-center">
+    <!-- language change -->
+    <div class="d-flex align-items-center">
+      <img class="mx-3 ms-0" src="assets/images/svg-img/language.svg" height="30" width="30">
+    </div>
+    <!-- profile dropdown -->
+    <div class="dropdown position-relative">
+      <a class="dropdown-toggle d-flex align-items-center medium-text Medium gap-2" href="#" role="button"
+        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+        <img class="profile_img" [src]="imageUrl+loginUser.profile">
+        {{loginUser.userName}}
+      </a>
+      <ul class="dropdown-menu profiles_dropdown" aria-labelledby="dropdownMenuLink"
+        data-popper-placement="bottom-end">
+        <div class="mb-3">
+          <li class="profile_dropdown d-flex align-items-center gap-3">
+            <img class="profile_img" [src]="imageUrl+loginUser.profile">
+            <div>
+              <h2 class="medium-text Medium mb-1">{{loginUser.userName}}</h2>
+              <h3 class="Regular Caption mb-0">{{loginUser.email}}</h3>
+            </div>
+          </li>
+        </div>
+        <!-- setting -->
+        <div class="d-flex flex-column gap-3 profile_list">
+          <li class="profile_card gap-2 p-2 d-flex align-items-center  small-text Medium">
+            <img class="profile_icon" src="assets/images/svg-img/settings.svg">
+            Setting
+            <div class="mb-0 lh-0 mx-0 ms-auto p-0"><img src="assets/images/svg-img/right-arrow.svg">
+            </div>
+          </li>
+          <!-- theme change -->
+          <li class="profile_card gap-2 p-2 d-flex align-items-center small-text Medium">
+            <img class="profile_icon" src="assets/images/svg-img/theme.svg">
+            Theme
+            <!-- THEME CHANGE -->
+            <div class="mx-0 ms-auto position-relative">
+              <button type="button" data-theme-toggle aria-label="theme" class="dark_theme"> </button>
+              <label class="switch darktheme_switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </li>
+          <!-- notification -->
+          <li class="profile_card gap-2 p-2 d-flex align-items-center small-text Medium">
+            <img class="profile_icon" src="assets/images/svg-img/notification.svg">
+            Notification
+            <label class="switch mx-0 ms-auto ">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </li>
+          <!-- logout -->
+          <li class="profile_card gap-2 p-2 d-flex align-items-center  small-text Medium logout" (click)="logOut()">
+            <img class="profile_icon" src="assets/images/svg-img/logout.svg">Logout
+            <div class="mb-0 lh-0 mx-0 ms-auto p-0"><img src="assets/images/svg-img/right-arrow.svg">
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

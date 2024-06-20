@@ -1,0 +1,60 @@
+<!-- login start -->
+<img src="assets/images/png-img/background-img.png" class="background_img">
+<!-- THEME CHANGE -->
+<button type="button" data-theme-toggle aria-label="theme" class="dark_theme position-absolute"> theme</button>
+
+<div class="container d-flex align-items-center justify-content-center h-100 py-5 p-0">
+    <div class="row  justify-content-center login_middle_content">
+        <div class="col-md-6">
+            <img src="assets/images/svg-img/logo.svg" class="img-fluid logo">
+        </div>
+
+        <div class="col-md-6 login_details">
+            <div class="login_background">
+                <div class="d-flex flex-column login_content">
+                    <img src="assets/images/svg-img/login-left-arrow.svg" width="30" height="50">
+                    <div class="login_text">
+                        <h1 class="Bold mb-3 Heading">Login to your account</h1>
+                        <h2 class="light mb-0 Sub-Heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do
+                            eiusmod tempor
+                            incididunt ut labore </h2>
+                    </div>
+                    <form [formGroup]="loginForm">
+                        <div>
+                            <input formControlName="userName" type="text" placeholder="Username"
+                                class="input_field py-3 p-2 mb-3" [(ngModel)]="loginRequest.userName">
+                            <div class="error"
+                                *ngIf="loginForm.get('userName')?.hasError('required') && loginForm.get('userName')?.touched">
+                                UserName is required.
+                            </div>
+                            <div class="position-relative">
+                                <input formControlName="password" type="text" placeholder="Password"
+                                    class="input_field py-3 p-2 mb-2" [(ngModel)]="loginRequest.password">
+                                <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+                                    class="error">
+                                    Password is required.
+                                </div>
+                                <div class="position-relative">>
+                                    <img src="assets/images/svg-img/eye.svg" class="eye_img">
+                                </div>
+                                <a href="forgot_password.html" class="Forgot mb-0 float-end small-text Medium">Forgot
+                                    Password</a>
+                            </div>
+                            <div>
+                                <button type="button" class="primary_btn medium-text Medium" (click)="login()">
+                                    Sign In
+                                </button>
+
+                                <h4 class="login_bottom_caption small-text Regular mt-2">Don't have an account ? <span
+                                        class="action_color">Sign up</span></h4>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>

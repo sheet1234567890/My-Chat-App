@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ChatBoxFrontEnd</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+     <!-- CUSTOME CSS  -->
+     <link rel="stylesheet" href="assets/css/style.css">
+     <!-- BOOTSTRAP CSS  -->
+     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+     <!-- FONT CSS  -->
+     <link rel="stylesheet" href="assets/css/stylesheet.css">
+     <!-- PAGE TITLE -->
+     
+     <title>Agency Room</title>
+</head>
+<body>
+  <app-root></app-root>
+   
+   <!-- dropdown   -->
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var dropdown = document.getElementById("customDropdown");
+      var inputField = document.getElementById("dropdownInput");
+
+      dropdown.addEventListener("click", function () {
+        dropdown.classList.toggle("show-dropdown");
+      });
+
+      var checkboxes = document.querySelectorAll('.custom-dropdown input[type="checkbox"]');
+
+      checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener("change", function () {
+          var selectedOptions = [];
+          checkboxes.forEach(function (cb) {
+            if (cb.checked) {
+              selectedOptions.push(cb.nextSibling.textContent.trim());
+            }
+          });
+          inputField.value = selectedOptions.join(', ');
+        });
+      });
+    });
+
+  </script>
+
+  <!-- checkbox -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var checkboxGroup = document.getElementById("checkboxGroup");
+      var checkboxes = checkboxGroup.querySelectorAll('input[type="checkbox"]');
+
+      checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener("change", function () {
+          if (this.checked) {
+            // Uncheck other checkboxes in the group
+            checkboxes.forEach(function (cb) {
+              if (cb !== checkbox) {
+                cb.checked = false;
+              }
+            });
+          }
+        });
+      });
+    });
+
+  </script>
+
+  <!-- chat box script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    jQuery(document).ready(function () {
+      $(".chat-list div").click(function () {
+        $(".chatbox").addClass("showbox");
+        return false;
+      });
+
+      $(".chat-icon").click(function () {
+        $(".chatbox").removeClass("showbox");
+      });
+    });
+
+  </script>
+
+  <!-- SCRIPTS LINKS -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/darktheme.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+.height-100{
+    height: 100%;
+}
+.error {
+    color: #d9534f; /* Bootstrap's danger color */
+    font-size: 10px;
+    margin-top: 5px;
+}

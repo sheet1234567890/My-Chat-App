@@ -1,0 +1,93 @@
+
+<div class="chat-lists">
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="Open" role="tabpanel" aria-labelledby="Open-tab">
+        <div class="position-relative p-3 mb-2 ">
+          <img src="assets/images/svg-img/search.svg" class="chat_search_icon gray">
+          <input [(ngModel)]="key" (keyup)="search()" name="key"  type="text" placeholder="Search" class="chat_user_search py-2 ps-5 px-3   w-100">
+        </div>
+        <!-- chat-list -->
+        <div class="chat-list">
+          <a class="d-flex gap-3" routerLink="/chat/receiver/{{l.userId}}" *ngFor="let l of receiverList">
+           <!-- <img [src]="imageUrl+l.profile" class="avtar rounded-circle"> -->
+          <!--  <h6 *ngIf="l.online===true">online</h6>
+          <h6 *ngIf="l.online===false">offline</h6> -->
+            
+          <div class=" avatar-container" >
+            <img [src]="imageUrl + l.profile" class="avatar rounded-circle" width="40px" height="40px">
+            <span [ngClass]="{'online-dot': l.online, 'offline-dot': !l.online}" class="status-dot"></span>
+          </div>
+
+            <div class="user_chat">
+              <h4  class="medium-text Medium mb-1" >{{l.userName}}</h4>
+              <h3 class="Caption small-text mb-0" *ngIf="!(status.status===true && l.converSationId===status.conversationId) || status.status===undefined " >{{l.latestMsg}} </h3>
+              <!-- <h3 class="Caption small-text mb-0" *ngIf="status===false">{{l.latestMsg}} {{status}}</h3> -->
+              <h3 class="Caption mb-0" *ngIf="status.status===true && l.converSationId===status.conversationId">typing...{{status.status}}</h3>
+            </div>
+            <div class="ms-auto mx-0 user_chat_right d-flex flex-column align-items-end">
+              <h3 class="Caption Regular mb-1" >{{l.latestMsgTime|date:'shortTime'}}</h3>
+              <!-- <span class="Caption Regular">2</span> -->
+            </div>
+       
+          </a>
+          <!-- <a class="d-flex gap-3  active">
+            <img src="assets/images/svg-img/Avatar-chat-2.svg" class="avtar rounded-circle">
+            <div class="user_chat">
+              <h4 class="medium-text Medium mb-1">David Moore</h4>
+              <h3 class="Caption small-text mb-0">You: i don't remember anything 😄 </h3>
+            </div>
+            <div class="ms-auto mx-0 user_chat_right d-flex flex-column align-items-end">
+              <h3 class="Caption Regular mb-1">18:30</h3>
+              <span class="Caption Regular">2</span>
+            </div>
+          </a> -->
+
+          <!-- <a class="d-flex gap-3 " >
+            <img src="assets/images/svg-img/Avatar-chat.svg" class="avtar rounded-circle">
+            <div class="user_chat">
+              <h4 class="medium-text Medium mb-1">Jessica Drew</h4>
+              <h3 class="Caption small-text mb-0">Ok, see you later</h3>
+            </div>
+            <div class="ms-auto mx-0 user_chat_right d-flex flex-column align-items-end">
+              <h3 class="Caption Regular mb-1">18:30</h3>
+              <span class="Caption Regular">2</span>
+            </div>
+          </a>
+          <a class="d-flex gap-3">
+            <img src="assets/images/svg-img/Avatar-chat.svg" class="avtar rounded-circle">
+            <div class="user_chat">
+              <h4 class="medium-text Medium mb-1">Jessica Drew</h4>
+              <h3 class="Caption small-text mb-0">Ok, see you later</h3>
+            </div>
+            <div class="ms-auto mx-0 user_chat_right d-flex flex-column align-items-end">
+              <h3 class="Caption Regular mb-1">18:30</h3>
+              <span class="Caption Regular">2</span>
+            </div>
+          </a>
+          <a class="d-flex gap-3">
+            <img src="assets/images/svg-img/Avatar-chat.svg" class="avtar rounded-circle">
+            <div class="user_chat">
+              <h4 class="medium-text Medium mb-1">Jessica Drew</h4>
+              <h3 class="Caption small-text mb-0">Ok, see you later</h3>
+            </div>
+            <div class="ms-auto mx-0 user_chat_right d-flex flex-column align-items-end">
+              <h3 class="Caption Regular mb-1">18:30</h3>
+              <span class="Caption Regular">2</span>
+            </div>
+          </a>
+          <a class="d-flex gap-3">
+            <img src="assets/images/svg-img/Avatar-chat.svg" class="avtar rounded-circle">
+            <div class="user_chat">
+              <h4 class="medium-text Medium mb-1">Jessica Drew</h4>
+              <h3 class="Caption small-text mb-0">Ok, see you later</h3>
+            </div>
+            <div class="ms-auto mx-0 user_chat_right d-flex flex-column align-items-end">
+              <h3 class="Caption Regular mb-1">18:30</h3>
+              <span class="Caption Regular">2</span>
+            </div>
+          </a> -->
+        </div>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,80 @@
+<div class="chatbox col-md-8 p-0 chat-content">
+  <div class="modal-dialog-scrollable height-100">
+    <div class="modal-content height-100 rounded-0">
+      <!-- chatbox top -->
+      <div class="d-flex align-items-center gap-3 py-2 px-3 border_bottom">
+        <span class="chat-icon">
+          <img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/arroleftt.svg" alt="image title">
+        </span>
+        <!-- <img [src]="imageUrl + image" class="avtar rounded-circle"> -->
+        
+
+
+<div class=" avatar-container">
+  <img [src]="imageUrl + image" class="avatar rounded-circle" width="40px" height="40px">
+  <span [ngClass]="{'online-dot': online, 'offline-dot': !online}" class="status-dot"></span>
+</div>
+        <div class="user_chat">
+          <h4 class="medium-text Bold mb-1">{{ receiverName }}</h4>
+          <h3 class="Caption mb-0" *ngIf="status.status === true && status.conversationId === userRequest.conversationId">typing... </h3>
+          <h3  class="Caption mb-0" *ngIf="online && !(status.status === true && status.conversationId === userRequest.conversationId)">online</h3>
+          <h3 class="Caption mb-0" *ngIf="(!(status.status===true && status.conversationId===userRequest.conversationId) || status.status===undefined )&&!online"  >{{lastSeen|lastSeenDate}}</h3>
+        </div>
+      </div>
+      
+      <!-- chatbox middle -->
+      <div class="modal-body chat_middle_section chat-container" #chatContainer>
+        <ul class="d-flex flex-column gap-3 p-0 chatting">
+          <div *ngFor="let date of getSortedDates()" class="date-group">
+            <div class="d-flex justify-content-center chat_box">
+              <h3 class="Primarylight_background py-1 px-2 medium-text Regular rounded">{{ date }}</h3>
+
+            </div>
+            <div *ngFor="let message of groupedMessages[date]" class="chatbox_message">
+              <div [ngClass]="getClass(message.senderId)">
+                <div class="white_card_background py-2 px-3">
+                  <h3 class="Regular small-text mb-0">{{ message.message }}
+                    <br>
+                  </h3>
+                  <h5 class="d-flex justify-content-end align-items-center mb-0 Caption Regular">
+                    {{ message.createdAt | date: 'shortTime' }}
+                    <span class="tick-mark">
+                      <span *ngIf="(message.status === received && message.senderId===getSenderId())" class="single-tick">&#10003;</span>
+                      <span *ngIf="(message.status === delivered && message.senderId===getSenderId())" class="double-tick">&#10003;&#10003;</span>
+                      <span *ngIf="(message.status === 'seen' &&message.senderId===getSenderId())" class="double-tick seen-tick">&#10003;&#10003;</span>
+                    </span>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+      
+      <!-- chatbox bottom send message -->
+      <form (ngSubmit)="sendMessage()">
+        <div class="send-box">
+          <div class="chat_bottom">
+            <input
+              type="text"
+              class="input_text border-0 py-2 p-3 w-100 small-text Medium rounded-1"
+              [(ngModel)]="chatMessageRequest.message"
+              name="message"
+              placeholder="Message"
+              (keypress)="typing()"
+            >
+
+            <button
+              type="submit"
+              (click)="sendMessage()"
+              (keydown.enter)="sendMessage()"
+              class="send_btn medium-text Medium py-1 p-3 position-relative"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+ .chat-content{
+    width: 100%;
+    height: 100%    ;
+}
+
+/* online offline css */
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar {
+  display: block;
+}
+
+.status-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white; /* Optional: adds a border around the dot */
+}
+
+.online-dot {
+  background-color: #006280;
+}
+
+.offline-dot {
+  background-color: yellow;
+}
+
+
+/* CSS */
+.single-tick {
+  color: #000; 
+  font-size: 17px;
+}
+
+.double-tick {
+  color: #000; 
+  font-size: 17px;
+}
+
+.seen-tick {
+  color: rgb(52, 52, 228); 
+  font-size: 20px;
+}
+
+
+/*
+.chat_middle_section{
+    height: 70vh;
+}
+.message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .double-tick {
+    color: green;
+    font-size: 1.2em;
+    margin-left: 10px;
+  }
+  
+
+
+  .date-group {
+    margin-bottom: 20px;
+  }
+  
+  .date-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    display: flex;
+    margin-bottom: 5px;
+  }
+  
+  .message-time {
+    margin-right: 10px;
+    font-size: 0.85em;
+    color: grey;
+  }
+  
+  .message-content {
+    flex: 1;
+  }
+  
+
+
+
+  
+  /*
+  .date-group {
+    margin-bottom: 20px;
+  }
+  
+  .date-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+  } */
+/*   
+  .message {
+    display: flex;
+    margin-bottom: 5px;
+  }
+  
+  .message-time {
+    margin-right: 10px;
+    font-size: 0.85em;
+    color: grey;
+  }
+  
+  .message-content {
+    flex: 1;
+  }
+   */ 
+   .chat-container {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
